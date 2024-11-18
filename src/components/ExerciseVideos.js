@@ -3,15 +3,27 @@ import { Typography, Box, Stack } from '@mui/material';
 import Loader from './Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-  if (!exerciseVideos.length) return <Loader />;
+  if (!exerciseVideos || exerciseVideos.length === 0) {
+    return (
+      <Box p="20px" textAlign="center">
+        <Typography variant="h6" color="textSecondary">
+          {exerciseVideos === undefined ? (
+            <Loader />
+          ) : (
+            `No videos available for "${name}" at the moment. Please try again later.`
+          )}
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ marginTop: { lg: '203px', xs: '20px' } }} p="20px">
       <Typography sx={{ fontSize: { lg: '44px', xs: '25px' } }} fontWeight={700} color="#000" mb="33px">
-        Watch <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>{name}</span> exercise videos
+        Watch <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>{name}</span> Exercise Videos
       </Typography>
       <Stack sx={{ flexDirection: { lg: 'row' }, gap: { lg: '110px', xs: '0px' } }} justifyContent="flex-start" flexWrap="wrap" alignItems="center">
-        {exerciseVideos?.slice(0, 3)?.map((item, index) => (
+        {exerciseVideos.slice(0, 3).map((item, index) => (
           <a
             key={index}
             className="exercise-video"
