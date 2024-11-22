@@ -6,7 +6,7 @@ const CaloriesTracker = () => {
   const [date, setDate] = useState('');
   const [caloriesLog, setCaloriesLog] = useState([]);
 
-  // Load the stored calorie log from localStorage when the component mounts
+  
   useEffect(() => {
     const storedLog = JSON.parse(localStorage.getItem('caloriesLog'));
     if (storedLog) {
@@ -14,7 +14,6 @@ const CaloriesTracker = () => {
     }
   }, []);
 
-  // Function to add a new calorie entry
   const handleAddCalories = () => {
     const newEntry = { date, calories };
     const updatedLog = [...caloriesLog, newEntry];
@@ -24,7 +23,7 @@ const CaloriesTracker = () => {
     setCalories(0);
   };
 
-  // Function to clear all logs
+  
   const handleClearLog = () => {
     setCaloriesLog([]);
     localStorage.removeItem('caloriesLog');

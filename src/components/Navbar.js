@@ -6,9 +6,8 @@ import Logo from '../assets/images/Logo.png';
 import ProfilePhoto from '../assets/images/profile.jpg';
 
 const Navbar = () => {
-  const location = useLocation(); // Get the current location
+  const location = useLocation(); 
 
-  // Function to check if the current path matches the given route
   const isActive = (path) => location.pathname === path;
 
   return (
