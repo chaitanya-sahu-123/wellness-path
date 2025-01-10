@@ -19,9 +19,9 @@ const HeroBanner = () => (
         <a
       href="#exercises"
       onClick={(e) => {
-        e.preventDefault();  // Prevent default behavior
-        const target = document.getElementById('exercises');  // Get the target element
-        target.scrollIntoView({ behavior: 'smooth' });  // Scroll with smooth animation
+        e.preventDefault(); 
+        const target = document.getElementById('exercises'); 
+        target.scrollIntoView({ behavior: 'smooth' });  
       }}
       style={{
         marginTop: '45px',
